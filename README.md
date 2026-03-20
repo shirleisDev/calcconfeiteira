@@ -25,3 +25,11 @@ Sistema **Full Stack** para gestão de custos de confeitaria, focado em precisã
 - **Versionamento:** Controle de projeto Web e Mobile em um único repositório Git.
 
 ---
+ Evolução do Projeto - Hoje
+Organizei a casa! Saí de scripts soltos para uma **Arquitetura de API Profissional**.
+
+**O que mudou:**
+- 📂 **Estrutura de Pastas:** Criei o padrão `/api/v1/insumos/` para melhor organização.
+- 📡 **Listagem Dinâmica:** Criei o `lista.php`, que busca os ingredientes direto do MySQL.
+- 🔐 **Segurança:** Reforcei o uso de PDO para proteger os dados da confeitaria.
+- 🛠️ **Backend Robusto:** Agora o sistema está pronto para conversar com o App (React Native).
