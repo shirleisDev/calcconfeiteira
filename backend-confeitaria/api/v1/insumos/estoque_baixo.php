@@ -1,4 +1,4 @@
-?php
+<?php
 // 1. Configurações de Acesso (CORS)
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -8,8 +8,10 @@ require_once '../../config.php';
 
 try {
     // 3. Busca apenas insumos com pouca quantidade (ex: menos de 5 unidades/kg)
-    $limite = 5;
-    $sql = "SELECT * FROM insumos WHERE quantidade <= :limite ORDER BY quantidade ASC";
+    // 3. Define o limite (aceita parâmetro via URL ou usa 5 como padrão)
+$limite = isset($_GET['limite']) ? (int)$_GET['limite'] : 5;
+
+$sql = "SELECT * FROM insumos WHERE quantidade <= :limite ORDER BY quantidade ASC";
     
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':limite', $limite, PDO::PARAM_INT);
