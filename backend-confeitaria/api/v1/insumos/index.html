@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Busca de Insumos</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; background: #f4f4f9; }
+        input { width: 100%; padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        #lista { margin-top: 20px; }
+        .item { background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 5px solid #2ecc71; }
+        .item strong { color: #333; display: block; }
+        .preco { color: #27ae60; font-weight: bold; }
+        .meta { font-size: 13px; color: #666; }
+    </style>
+</head>
+<body>
+
+    <h2>🔍 Buscar Insumos</h2>
+    <!-- O evento 'input' faz a busca enquanto você digita -->
+    <input type="text" id="campoBusca" placeholder="Ex: Chocolate, Farinha..." oninput="buscar()">
+
+    <div id="lista">
+        <!-- Os resultados aparecerão aqui -->
+    </div>
+
+    <script>
+        async function buscar() {
+            const termo = document.getElementById('campoBusca').value;
+            const lista = document.getElementById('lista');
+            
+            // Substitua 'busca.php' pelo nome real do seu arquivo PHP
+            try {
+                const response = await fetch(`buscar.php?q=${termo}`);
+                const res = await response.json();
+
+                if (res.status === "sucesso") {
+                    lista.innerHTML = res.dados.map(item => `
+                        <div class="item">
+                            <strong>${item.nome_item}</strong>
+                            <span class="preco">R$ ${parseFloat(item.preco_total).toFixed(2)}</span>
+                            <div class="meta">
+                                Peso: ${item.peso_total}g | 
+                                Custo/g: <strong>R$ ${parseFloat(item.custo_por_grama).toFixed(4)}</strong>
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    if (res.total_encontrado === 0) {
+                        lista.innerHTML = '<p>Nenhum insumo encontrado.</p>';
+                    }
+                }
+            } catch (erro) {
+                console.error("Erro na busca:", erro);
+            }
+        }
+
+        // Carrega tudo ao abrir a página
+        buscar();
+    </script>
+</body>
+</html>
