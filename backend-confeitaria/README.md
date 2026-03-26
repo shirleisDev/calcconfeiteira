@@ -40,3 +40,26 @@ Servidor: Apache (via XAMPP).
 Linguagem: PHP 8.x.
 Banco de Dados: MySQL (Schema: calcconfeitera).
 CORS: Configurado para aceitar requisições de origens distintas (necessário para integração com React/Vite).
+
+26/03 # 🍰 Precifica Confeitaria - Gestão Inteligente de Insumos
+
+**Status do Projeto:** 🚀 Em Desenvolvimento Ativo (Sprint 2)
+**Responsável Técnica:** ShirleisDev
+
+## 🎯 Sobre o Projeto
+Sistema desenvolvido para automação de precificação e gestão de estoque para confeitarias. O foco é o cálculo preciso do **Custo por Grama**, permitindo que o confeiteiro saiba exatamente o lucro de cada receita.
+
+## 🛠️ Tecnologias Utilizadas
+- **Backend:** PHP 8.0+ (Arquitetura orientada a objetos com PDO para segurança contra SQL Injection)
+- **Database:** MySQL
+- **Frontend:** HTML5, CSS3 e JavaScript Moderno (Fetch API para buscas assíncronas)
+- **Ferramentas:** XAMPP, Git/GitHub (Fluxo de Code Review via Pull Requests)
+
+## ✨ Funcionalidades Atuais
+- [x] Conexão segura com Banco de Dados.
+- [x] Busca dinâmica de insumos (Live Search).
+- [x] Cálculo automático de custo unitário.
+- [x] Proteção de Branch e Governança de Código.
+
+## 🛡️ Governança de Código
+Para garantir a integridade do sistema registrado no MEC, este repositório utiliza regras de **Branch Protection**. Contribuições externas devem ser enviadas via Pull Request para revisão e validação técnica antes do merge na branch principal.
