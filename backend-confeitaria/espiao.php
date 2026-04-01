@@ -24,12 +24,19 @@ if ($conteudo === FALSE) {
     // 3. Vamos procurar o <title> do site (o que aparece na aba do navegador)
     preg_match("/<title>(.*)<\/title>/i", $conteudo, $matches);
     
-    echo "<h3>O que o robô leu no topo do site:</h3>";
+       echo "<h3>O que o robô leu no topo do site:</h3>";
     echo "<div style='background:#eee; padding:10px; border-radius:5px;'>";
     echo $matches[1] ?? "Título não encontrado, mas o código foi lido!";
-    echo "</div>";
     
-    echo "<h4>Primeiros 200 caracteres do 'DNA' do site:</h4>";
-    echo "<pre>" . htmlspecialchars(substr($conteudo, 0, 200)) . "...</pre>";
+    // 4. O Robô agora vira um "Caçador de Preços"
+    $ingredienteAlvo = $_GET['item'] ?? "Leite Condensado";
+
+    if (stripos($conteudo, $ingredienteAlvo) !== false) {
+        echo "<p style='color:blue'>🔍 Encontrei o termo <b>$ingredienteAlvo</b> no site do mercado!</p>";
+    } else {
+        echo "<p style='color:orange'>⚠️ O ingrediente $ingredienteAlvo não está na vitrine hoje.</p>";
+    }
+    echo "</div>";
+
 }
 ?>

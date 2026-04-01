@@ -1,0 +1,15 @@
+<!-- Design simples e limpo para a confeiteira -->
+<div style="font-family: sans-serif; max-width: 400px; margin: 50px auto; padding: 20px; border: 2px solid #ff8c00; border-radius: 15px;">
+    <h2 style="color: #ff8c00; text-align: center;">🧁 Painel da Confeiteira</h2>
+    <p>Digite o ingrediente para ver se o mercado tem promoção:</p>
+    
+    <!-- O formulário envia o dado para o seu arquivo PHP -->
+    <form action="espiao.php" method="GET">
+        <input type="text" name="item" placeholder="Ex: Leite Condensado" required 
+               style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+        
+        <button type="submit" style="width: 100%; background: #ff8c00; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+            🕵️‍♂️ CONSULTAR MERCADO AGORA
+        </button>
+    </form>
+</div>
