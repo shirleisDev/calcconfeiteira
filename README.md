@@ -33,3 +33,27 @@ Organizei a casa! Saí de scripts soltos para uma **Arquitetura de API Profissio
 - 📡 **Listagem Dinâmica:** Criei o `lista.php`, que busca os ingredientes direto do MySQL.
 - 🔐 **Segurança:** Reforcei o uso de PDO para proteger os dados da confeitaria.
 - 🛠️ **Backend Robusto:** Agora o sistema está pronto para conversar com o App (React Native).
+
+
+06/04/
+
+# 👩‍🍳 BakeSpy Radar de Insumos
+
+O **BakeSpy** é um robô de busca (Web Scraper) desenvolvido em PHP para ajudar confeiteiras a monitorar preços de ingredientes em tempo real em diversos mercados simultaneamente.
+
+## 🚀 Funcionalidades
+- **Busca Multimercado:** Consulta várias URLs ao mesmo tempo através de um Array dinâmico.
+- **Detecção Inteligente:** Localiza termos de busca e tenta extrair preços (R$) próximos ao produto.
+- **Interface Futurista:** Painel de controle com tema escuro e feedback visual de status da operação.
+
+## 🛠️ Tecnologias
+- **PHP 8+** (Lógica do robô e extração de dados)
+- **HTML5/CSS3** (Interface responsiva e temática)
+- **Stream Context** (Simulação de User-Agent para evitar bloqueios)
+- **Fonte** de extração de conhecimento documentos php sit ja existes e o mais importante consulta a varias ferramentas como (IA ).
+## 🎯 Objetivo do Projeto
+Este projeto nasceu para resolver uma dor real: o tempo gasto comparando preços manualmente. Ele automatiza a "Operação Espião", garantindo que a produção de doces tenha sempre o melhor custo-benefício.
+
+---
+*Projeto desenvolvido com carinho para o mundo da confeitaria e como parte do aprendizado em desenvolvimento backend.*
+-**foi feita modificação:** renomeação de pasta modificação de json e atualização no  atalho (Alias)xampp rodando sem erro
