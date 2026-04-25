@@ -63,3 +63,18 @@ Sistema desenvolvido para automação de precificação e gestão de estoque par
 
 ## 🛡️ Governança de Código
 Para garantir a integridade do sistema registrado no MEC, este repositório utiliza regras de **Branch Protection**. Contribuições externas devem ser enviadas via Pull Request para revisão e validação técnica antes do merge na branch principal.
+
+
+24/04
+🚀 Radar de Preços Galáctico - Backend
+Este projeto é uma API robusta desenvolvida em PHP para gerenciar insumos e preços de uma loja de confeitaria, utilizando técnicas de web scraping para monitoramento de mercados em tempo real.
+🛠️ Tecnologias e Arquitetura
+O projeto foi reformulado para seguir padrões modernos de desenvolvimento:
+PHP 8.0+ (Backend Core).
+MySQL (Persistência de dados).
+Composer (Gerenciador de dependências).
+PHP IDS / Segurança: Implementação de variáveis de ambiente com vlucas/phpdotenv.
+Arquitetura: Separação de responsabilidades (Configuração, API e Lógica de Negócio).
+CI/CD Ready: Estrutura preparada para testes automatizados com phpunit.
+🛡️ Segurança (Implementada)
+O sistema utiliza um arquivo .env para proteger credenciais sensíveis (Banco de Dados).

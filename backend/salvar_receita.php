@@ -12,7 +12,9 @@
     $json = file_get_contents('php://input');
     $dados = json_decode($json, true);
 
-    if ($dados) {
+    if ($dados) {        
+        print($dados);
+
         // 4. Lógica de Negócio (Backend): Calcula o custo por grama antes de salvar
         $nome = $dados['nome'];
         $preco = (float)$dados['preco'];
