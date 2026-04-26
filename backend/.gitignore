@@ -1,0 +1,15 @@
+# Pasta de dependências do Composer (muito pesada)
+/vendor/
+
+# Arquivo de configuração com senhas e segredos
+.env
+
+# Arquivos de log e erros
+*.log
+
+# Arquivos de configuração do VS Code ou outros editores
+.vscode/
+.idea/
+
+# Arquivos temporários do Windows
+Thumbs.db

@@ -15,6 +15,10 @@ class ComposerStaticInit20245c7862bd1135962a9a17f358180f
     );
 
     public static $prefixLengthsPsr4 = array (
+        't' =>
+        array (
+            'thiagoalessio\\TesseractOCR\\' => 27,
+        ),
         'S' =>
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -39,6 +43,10 @@ class ComposerStaticInit20245c7862bd1135962a9a17f358180f
     );
 
     public static $prefixDirsPsr4 = array (
+        'thiagoalessio\\TesseractOCR\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src',
+        ),
         'Symfony\\Polyfill\\Php80\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',

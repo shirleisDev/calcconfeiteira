@@ -78,3 +78,65 @@ Arquitetura: Separação de responsabilidades (Configuração, API e Lógica de 
 CI/CD Ready: Estrutura preparada para testes automatizados com phpunit.
 🛡️ Segurança (Implementada)
 O sistema utiliza um arquivo .env para proteger credenciais sensíveis (Banco de Dados).
+
+25/04
+# 🎂 CalcConfeiteira - Backend API
+
+Sistema de gestão de insumos e cálculo de custos para confeitaria, desenvolvido com foco em segurança, escalabilidade e boas práticas de programação PHP.
+
+## 🚀 Tecnologias Utilizadas
+
+- **PHP 8.x** (Programação Orientada a Objetos)
+- **Composer** (Gerenciador de dependências)
+- **MySQL** (Banco de dados)
+- **vlucas/phpdotenv** (Proteção de credenciais)
+- **PDO** (Interação segura com o banco de dados)
+
+## 🛡️ Camadas de Segurança (Blindagem)
+
+O projeto foi construído com foco em segurança nível profissional:
+1. **Proteção contra SQL Injection**: Uso exclusivo de *Prepared Statements* com PDO.
+2. **Cofre de Credenciais**: Senhas e usuários do banco ocultos em arquivo `.env`.
+3. **Prevenção de XSS**: Sanitização de entradas com `htmlspecialchars` e `strip_tags`.
+4. **Validação de Dados**: Tipagem rigorosa para preços e pesos, evitando transbordo de dados ou valores inválidos.
+5. **Arquitetura Limpa**: Separação de responsabilidades entre conexão (`Database.php`) e lógica de negócio (`Insumo.php`).
+
+## 📋 Pré-requisitos
+
+1. Ter o **Composer** instalado.
+2. Servidor local (XAMPP, WAMP ou Laragon).
+3. Criar o banco de dados com a tabela `insumos`:
+   ```sql
+   CREATE TABLE insumos (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       nome_item VARCHAR(100) NOT NULL,
+       preco_total DECIMAL(10,2) NOT NULL,
+       peso_total DECIMAL(10,2) NOT NULL,
+       custo_por_grama DECIMAL(10,4) NOT NULL
+   );
+   ```
+
+## 🛠️ Instalação
+
+1. Clone o repositório ou copie os arquivos.
+2. Na pasta raiz, instale as dependências:
+   ```bash
+   composer install
+   ```
+3. Crie um arquivo `.env` na raiz e configure seu banco:
+   ```env
+   DB_HOST=localhost
+   DB_NAME=calcconfeiteira
+   DB_USER=root
+   DB_PASS=sua_senha
+   ```
+
+## 📂 Estrutura de Arquivos
+
+- `Database.php`: Classe singleton para conexão segura com o banco.
+- `Insumo.php`: Classe gerente que contém os métodos `buscar()` e `salvar()`.
+- `.env`: Arquivo de configuração (não deve ser enviado ao servidor).
+- `vendor/`: Dependências instaladas pelo Composer.
+
+---
+Desenvolvido por **Costa** com auxílio de IA - 2024
