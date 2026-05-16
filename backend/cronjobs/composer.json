@@ -1,0 +1,13 @@
+{
+    "require": {
+        "google/cloud-functions-framework": "^1.3"
+    },
+    "autoload": {
+        "files": [
+            "scraper_config.php",
+            "scraper_functions.php",
+            "ocr_functions.php",
+            "mongo_functions.php"
+        ]
+    }
+}
