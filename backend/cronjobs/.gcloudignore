@@ -1,0 +1,6 @@
+# Don't upload downloaded supermarket files — they are created at runtime in /tmp
+output/
+
+# CLI-only scripts, not needed in Cloud Functions
+scraper.php
+ocr_service.php

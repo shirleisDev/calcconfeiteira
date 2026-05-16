@@ -51,37 +51,32 @@ function runScraper(ServerRequestInterface $request): string
         $text = '';
 
         if ($config['type'] === 'image') {
-            foreach ($config['outputs'] as $output) {
-                $dest = getDatedPath($output);
-                $imageUrl = null;
+            $imageUrls = parseHtmlForImages(
+                $html,
+                $config['selector']['value'],
+                $config['selector']['limit']
+            );
 
-                $className = $config['selector']['value'];
-                $limit = $config['selector']['limit'];
-                $imageUrls = parseHtmlForImages($html, $className, $limit);
-
-                foreach ($imageUrls as $idx => $imgUrl) {
-                    $absolute = resolveUrl($imgUrl, $config['url']);
-                    $fileDest = getDatedPath($config['outputs'][$idx]);
-                    if (downloadFile($absolute, $fileDest)) {
-                        $pageText = visionAnnotateImage($fileDest, $apiKey);
-                        $text .= $pageText . "\n";
-                        @unlink($fileDest);
-                    }
+            foreach ($imageUrls as $idx => $imgUrl) {
+                $absolute = resolveUrl($imgUrl, $config['url']);
+                $fileDest = getDatedPath($config['outputs'][$idx]);
+                if (downloadFile($absolute, $fileDest)) {
+                    $text .= visionAnnotateImage($fileDest, $apiKey) . "\n";
+                    @unlink($fileDest);
                 }
-                break; // images handled inside loop above
             }
         }
 
         if ($config['type'] === 'pdf') {
-            $selectorValue  = $config['selector']['value'];
-            $selectorMethod = $config['selector']['method'] ?? 'button_text';
-            $pdfUrl = parseHtmlForPdfLink($html, $selectorValue, $selectorMethod);
+            $pdfUrl = parseHtmlForPdfLink(
+                $html,
+                $config['selector']['value'],
+                $config['selector']['method'] ?? 'button_text'
+            );
 
             if ($pdfUrl) {
-                $absolute = resolveUrl($pdfUrl, $config['url']);
-                $dest     = getDatedPath($config['output']);
-
-                if (downloadFile($absolute, $dest)) {
+                $dest = getDatedPath($config['output']);
+                if (downloadFile(resolveUrl($pdfUrl, $config['url']), $dest)) {
                     $text = visionAnnotatePdf($dest, $apiKey);
                     @unlink($dest);
                 }
@@ -101,7 +96,7 @@ function runScraper(ServerRequestInterface $request): string
         $saved = mongoSaveProducts($name, $products, $today, $mongoConfig);
         $summary[$name] = [
             'products' => count($products),
-            'saved'    => $saved
+            'saved'    => $saved,
         ];
 
         logMessage("");
@@ -110,8 +105,8 @@ function runScraper(ServerRequestInterface $request): string
     logMessage("=== Done ===");
 
     return json_encode([
-        'status' => 'done',
-        'date'   => $today,
-        'summary' => $summary
+        'status'  => 'done',
+        'date'    => $today,
+        'summary' => $summary,
     ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 }
